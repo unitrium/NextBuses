@@ -17,12 +17,12 @@ jobs:
       - name: 'Resolve Project Dependencies Using Dotnet'
         shell: bash
         run: |
-          pushd './.'
-          dotnet build --configuration Release --output ./output
+          pushd './NextBuses'
+          dotnet build --configuration Release --output ./output/NextBuses/
           popd
       - name: 'Deploy Azure Functions'
         uses: Azure/functions-action@v1
         with:
-          app-name: QueryLatestBuses
-          package: ./output/
+          app-name: CatchThatBus
+          package: ./output/NextBuses
           publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}

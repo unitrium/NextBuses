@@ -13,9 +13,9 @@ namespace NextBuses
     {
         [JsonPropertyName("id")]
         public string StopID { get; set; }
-        [JsonPropertyName("Lines")]
+        [JsonPropertyName("lines")]
         public List<string> Lines { get; set; }
-        [JsonPropertyName("Directions")]
+        [JsonPropertyName("directions")]
         public List<string> Directions { get; set; }
     }
 }

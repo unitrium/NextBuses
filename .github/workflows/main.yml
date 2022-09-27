@@ -18,7 +18,8 @@ jobs:
         shell: bash
         run: |
           pushd './.'
-          dotnet build Main/NextBuses.csproj --configuration Release --output ./output/NextBuses/
+          ls
+          dotnet build NextBuses/Main/NextBuses.csproj --configuration Release --output ./output/NextBuses/
           popd
       - name: 'Deploy Azure Functions'
         uses: Azure/functions-action@v1

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace NextBuses
 {
-    public static class NextBuses
+    public static class AppFunction
     {
         [FunctionName("NextBuses")]
         public static async Task<IActionResult> Run(
@@ -23,9 +23,16 @@ namespace NextBuses
             string responseMessage = "";
             foreach (RequestedStop stop in data.RequestedStops)
             {
-                QueryDepartureBoard query = new QueryDepartureBoard(stop.StopID);
-                DepartureBoardWrapper departues = query.execute();
-                responseMessage += departues.display(new HashSet<string>(stop.Lines), new HashSet<string>(stop.Directions));
+                try
+                {
+                    QueryDepartureBoard query = new QueryDepartureBoard(stop.StopID);
+                    DepartureBoardWrapper departues = query.execute();
+                    responseMessage += departues.display(new HashSet<string>(stop.Lines), new HashSet<string>(stop.Directions)) + "\n";
+                }
+                catch
+                {
+                    responseMessage += $"Error while querying stop {stop.StopID}.";
+                }
             }
             return new OkObjectResult(responseMessage);
         }

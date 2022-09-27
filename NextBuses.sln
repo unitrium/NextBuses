@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1700.5
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextBuses", "NextBuses.csproj", "{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\NextBuses.csproj", "{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unittests.NextBuses", "Unittests.NextBuses\Unittests.NextBuses.csproj", "{794CB70C-0148-4286-A109-E92E9DBB19EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,11 +17,19 @@ Global
 		{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794CB70C-0148-4286-A109-E92E9DBB19EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794CB70C-0148-4286-A109-E92E9DBB19EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794CB70C-0148-4286-A109-E92E9DBB19EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794CB70C-0148-4286-A109-E92E9DBB19EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34485A43-987C-4555-B2C7-33CF52279C72}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{794CB70C-0148-4286-A109-E92E9DBB19EF} = {AA51CD4F-7983-413B-AB31-D33556866F5B}
+		{7F3E64C8-CF89-4B16-AB42-0E1604F13BA4} = {085CD382-E760-48EA-83E3-FA765F96CF66}
 	EndGlobalSection
 EndGlobal

@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System;
 
 namespace NextBuses
 {
@@ -29,9 +30,10 @@ namespace NextBuses
                     DepartureBoardWrapper departues = query.execute();
                     responseMessage += departues.display(new HashSet<string>(stop.Lines), new HashSet<string>(stop.Directions));
                 }
-                catch
+                catch (Exception ex)
                 {
                     responseMessage += $"Error while querying stop {stop.StopID}.";
+                    log.LogError(ex.Message);
                 }
             }
             return new OkObjectResult(responseMessage);

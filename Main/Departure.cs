@@ -29,7 +29,7 @@ namespace NextBuses
 				display+= $"{grouping.Key}: ";
 				foreach (Departure departure in grouping)
                 {
-					display += $"{departure.Time} ";
+					display += $"{departure.Time}\n";
 				}
             }
 			return display + "\n";

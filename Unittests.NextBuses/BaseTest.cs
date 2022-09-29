@@ -67,6 +67,6 @@ public class BaseTests
             responseMessage += departues.display(new HashSet<string>(stop.Lines), new HashSet<string>(stop.Directions));
         }
 
-        Assert.AreEqual("TestStop 100:11.05 ", responseMessage);
+        Assert.AreEqual("TestStop :\n100:11.05 \n", responseMessage);
     }
 }

@@ -19,7 +19,7 @@ namespace NextBuses
 			Departure first = Board.Departures.First();
 			int stringLimit = first.Stop.Count() > limit ? limit : first.Stop.Count();
 			string display = $"{first.Stop.Substring(0, stringLimit)} :\n";
-			var next = Board.Departures.Where(d => line.Contains(d.Line) && direction.Contains(d.Direction)).Take(5);
+			var next = Board.Departures.Where(d => line.Contains(d.Line) && direction.Contains(d.Direction)).ToArray().Take(5);
 			if (next.Count() == 0)
             {
 				return display + "No departure for line or direction.";

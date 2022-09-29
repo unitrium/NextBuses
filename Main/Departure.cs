@@ -19,17 +19,19 @@ namespace NextBuses
 			Departure first = Board.Departures.First();
 			int stringLimit = first.Stop.Count() > limit ? limit : first.Stop.Count();
 			string display = $"{first.Stop.Substring(0, stringLimit)} :\n";
-			var next = Board.Departures.Where(d => line.Contains(d.Line) && direction.Contains(d.Direction)).ToArray().Take(5);
-			if (next.Count() == 0)
+			var departures = Board.Departures.Where(d => line.Contains(d.Line) && direction.Contains(d.Direction)).GroupBy(d => d.Line);
+			if (departures.Count() == 0)
             {
 				return display + "No departure for line or direction.\n";
             }
-			first = next.First();
-			
-			foreach (Departure departure in next)
-			{
-				display += $"{departure.Line}:{departure.Time} ";
-			}
+			foreach (var grouping in departures)
+            {
+				display+= $"{grouping.Key}: ";
+				foreach (Departure departure in grouping)
+                {
+					display += $"{departure.Time} ";
+				}
+            }
 			return display + "\n";
 		}
 	}

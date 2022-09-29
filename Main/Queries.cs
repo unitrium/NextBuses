@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text.Json;
 using System.IO;
+using System.Collections.Generic;
 
 namespace NextBuses
 {
@@ -33,11 +34,24 @@ namespace NextBuses
     }
     public class QueryDepartureBoard : Query<DepartureBoardWrapper>
     {
-        public QueryDepartureBoard(string stopid, bool includeTrains = true, bool includeBus = true) : base()
+        Dictionary<TransportType, string> exclusionMap = new Dictionary<TransportType, string>()
         {
-            string useBus = includeBus ? "" : "&useBus=0";
-            string useTrains = includeTrains ? "" : "&includeTrain=0";
-            url = $"departureBoard?id={stopid}{useBus}{useTrains}&format=json";
+            { TransportType.Bus, "useBus=0" },
+            { TransportType.Train, "useTrain=0" },
+            { TransportType.Metro, "useMetro=0" }
+
+        };
+        public QueryDepartureBoard(string stopid, List<TransportType>? excludedTransportTypes) : base()
+        {
+            string use = "";
+            if (excludedTransportTypes != null)
+            {
+                foreach (TransportType transport in excludedTransportTypes)
+                {
+                    use += exclusionMap[transport];
+                }
+            }
+            url = $"departureBoard?id={stopid}{use}&format=json";
         }
     }
 }

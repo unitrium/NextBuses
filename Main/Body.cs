@@ -17,6 +17,14 @@ namespace NextBuses
         public List<string> Lines { get; set; }
         [JsonPropertyName("directions")]
         public List<string> Directions { get; set; }
+        [JsonPropertyName("transportType")]
+        public List<TransportType> ExcludedTransportTypes { get; set; }
+    }
+    public enum TransportType
+    {
+        Bus = 0,
+        Train = 2,
+        Metro=2,
     }
 }
 

@@ -25,7 +25,7 @@ namespace NextBuses
             {
                 try
                 {
-                    QueryDepartureBoard query = new QueryDepartureBoard(stop.StopID);
+                    QueryDepartureBoard query = new QueryDepartureBoard(stop.StopID, stop.ExcludedTransportTypes);
                     DepartureBoardWrapper departues = query.execute();
                     responseMessage += departues.display(new HashSet<string>(stop.Lines), new HashSet<string>(stop.Directions));
                 }

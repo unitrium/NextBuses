@@ -22,7 +22,7 @@ namespace NextBuses
 			var next = Board.Departures.Where(d => line.Contains(d.Line) && direction.Contains(d.Direction)).ToArray().Take(5);
 			if (next.Count() == 0)
             {
-				return display + "No departure for line or direction.";
+				return display + "No departure for line or direction.\n";
             }
 			first = next.First();
 			

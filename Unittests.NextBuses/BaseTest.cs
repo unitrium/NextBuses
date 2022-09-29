@@ -24,7 +24,8 @@ public class BaseTests
                 {
                     StopID = "10",
                     Directions = new List<string>{"København H." },
-                    Lines = new List<string>{"B" }
+                    Lines = new List<string>{"B" },
+                    ExcludedTransportTypes = new List<TransportType>{0}
                 },
                 new RequestedStop()
                 {

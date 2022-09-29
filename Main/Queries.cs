@@ -48,7 +48,7 @@ namespace NextBuses
             {
                 foreach (TransportType transport in excludedTransportTypes)
                 {
-                    use += exclusionMap[transport];
+                    use += "&" + exclusionMap[transport];
                 }
             }
             url = $"departureBoard?id={stopid}{use}&format=json";

@@ -10,7 +10,7 @@ namespace NextBuses
 		[JsonPropertyName("DepartureBoard")]
 		public DepartureBoard Board { get; set; }
 		// Display the next 5 departures
-		public string display(HashSet<string> line, HashSet<string> direction, int stopNameLimit = 10, int maxDepartures = 6)
+		public string display(HashSet<string> line, HashSet<string> direction, int stopNameLimit = 10, int maxDepartures = 5)
 		{
 			if (Board.Departures.Count() == 0)
             {

@@ -50,7 +50,7 @@ namespace NextBuses
                     {
                         textMatrix.Add("");
                     }
-                    textMatrix[i] += $"{departure.Time}";
+                    textMatrix[i] += $"{departure.GetTimeSpan().Minutes} min";
                     i++;
                 }
             }

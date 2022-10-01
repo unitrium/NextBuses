@@ -3,6 +3,8 @@ using System.Linq;
 using System.Text.Json;
 using System.IO;
 using System.Text.Json.Serialization;
+using System;
+
 namespace NextBuses
 {
 	public class DepartureBoardWrapper
@@ -42,5 +44,11 @@ namespace NextBuses
 		public string Line { get; set; }
 		[JsonPropertyName("direction")]
 		public string Direction { get; set; }
+		public TimeSpan GetTimeSpan()
+		{
+			return TimeOnly.Parse(this.Time).ToTimeSpan() - DateTime.Now.TimeOfDay;
+
+		}
 	}
+	
 }

@@ -28,7 +28,7 @@ namespace NextBuses
     {
         // A display for the TTGO board displays lines horizontally.
         public int maxStopNameSize { get; } = 10;
-        public int maxDepartures { get; } = 4;
+        public int maxDepartures { get; } = 3;
         public string render(List<Departure> departures)
         {
             var first = departures.First();

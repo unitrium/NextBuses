@@ -33,7 +33,7 @@ namespace NextBuses
         {
             var first = departures.First();
             int stringLimit = first.Stop.Count() > maxStopNameSize ? maxStopNameSize : first.Stop.Count();
-            string display = $"{first.Stop.Substring(0, stringLimit)} {DateTime.Now.TimeOfDay}:\n";
+            string display = $"{first.Stop.Substring(0, stringLimit)} :\n";
             if (departures.Count() == 0)
             {
                 return display + "No departure for line or direction.\n";

@@ -46,7 +46,8 @@ namespace NextBuses
 		public string Direction { get; set; }
 		public TimeSpan GetTimeSpan()
 		{
-			return TimeOnly.Parse(this.Time).ToTimeSpan() - DateTime.Now.TimeOfDay;
+			// Adapted to danish time
+			return TimeOnly.Parse(this.Time).ToTimeSpan() - TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Romance Standard Time")).TimeOfDay;
 
 		}
 	}

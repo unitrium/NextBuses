@@ -61,7 +61,7 @@ namespace NextBuses
             {
                 display += line + "\n";
             }
-            return display;
+            return display+",";
         }
     }
 }

@@ -33,7 +33,7 @@ namespace NextBuses
         {
             var first = departures.First();
             int stringLimit = first.Stop.Count() > maxStopNameSize ? maxStopNameSize : first.Stop.Count();
-            string display = $"{first.Stop.Substring(0, stringLimit)} :\n";
+            string display = $"{first.Stop.Substring(0, stringLimit)} {DateTime.Now.TimeOfDay}:\n";
             if (departures.Count() == 0)
             {
                 return display + "No departure for line or direction.\n";
@@ -50,8 +50,10 @@ namespace NextBuses
                     {
                         textMatrix.Add("");
                     }
-                    string seconds = (departure.GetTimeSpan().TotalSeconds % 60) <= 30 ? "30" : "";
-                    textMatrix[i] += $"{Math.Round(departure.GetTimeSpan().TotalMinutes)} min {seconds}";
+                    TimeSpan timeSpan = departure.GetTimeSpan();
+                    string seconds = (timeSpan.TotalSeconds % 60) <= 30 ? "30" : "";
+                    double minutes = Math.Round(timeSpan.TotalMinutes);
+                    textMatrix[i] += $"{minutes} min {seconds}";
                     i++;
                 }
             }

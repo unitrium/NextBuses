@@ -51,7 +51,7 @@ namespace NextBuses
                         textMatrix.Add("");
                     }
                     string seconds = (departure.GetTimeSpan().TotalSeconds % 60) <= 30 ? "30" : "";
-                    textMatrix[i] += $"{departure.GetTimeSpan().TotalMinutes} min {seconds}";
+                    textMatrix[i] += $"{Math.Round(departure.GetTimeSpan().TotalMinutes)} min {seconds}";
                     i++;
                 }
             }

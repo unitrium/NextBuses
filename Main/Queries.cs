@@ -37,9 +37,7 @@ namespace NextBuses
         Dictionary<TransportType, string> exclusionMap = new Dictionary<TransportType, string>()
         {
             { TransportType.Bus, "useBus=0" },
-            { TransportType.Train, "useTrain=0" },
-            { TransportType.Metro, "useMetro=0" }
-
+            { TransportType.Train, "useTrain=0" }
         };
         public QueryDepartureBoard(string stopid, List<TransportType>? excludedTransportTypes) : base()
         {

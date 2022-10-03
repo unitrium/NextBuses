@@ -27,7 +27,7 @@ namespace NextBuses
     public class TTGODisplay : IBoardDisplay
     {
         // A display for the TTGO board displays lines horizontally.
-        public int maxStopNameSize { get; } = 10;
+        public int maxStopNameSize { get; } = 12;
         public int maxDepartures { get; } = 3;
         public string render(List<Departure> departures)
         {
@@ -39,7 +39,7 @@ namespace NextBuses
                 return display + "No departure for line or direction.\n";
             }
             List<string> textMatrix = new List<string>() {""};
-            var groupings = departures.GroupBy(d => d.Line).Take(maxDepartures);
+            var groupings = departures.GroupBy(d => d.Line);
             foreach (var grouping in groupings)
             {
                 textMatrix[0] += $"{grouping.Key}:  ";
@@ -55,6 +55,10 @@ namespace NextBuses
                     double minutes = Math.Round(timeSpan.TotalMinutes);
                     textMatrix[i] += $"{minutes} min {seconds}";
                     i++;
+                    if (i > maxDepartures)
+                    {
+                        break;
+                    }
                 }
             }
             foreach (string line in textMatrix)

@@ -39,7 +39,7 @@ namespace NextBuses
                 return display + "No departure for line or direction.\n";
             }
             List<string> textMatrix = new List<string>() {""};
-            var groupings = departures.Take(maxDepartures).GroupBy(d => d.Line);
+            var groupings = departures.GroupBy(d => d.Line).Take(maxDepartures);
             foreach (var grouping in groupings)
             {
                 textMatrix[0] += $"{grouping.Key}:  ";

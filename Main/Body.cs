@@ -23,8 +23,7 @@ namespace NextBuses
     public enum TransportType
     {
         Bus = 0,
-        Train = 1,
-        Metro=2,
+        Train = 1
     }
 }
 
